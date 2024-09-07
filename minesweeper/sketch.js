@@ -140,7 +140,7 @@ class Cell {
 
 
   show() {
-    this.reavealed ? fill(235, 235, 235) : fill(110, 108, 104);
+    this.reavealed ? fill(235, 235, 235) : fill(165, 165, 165);
     stroke(0);
     rect(this.x, this.y, this.gap, this.gap);
     

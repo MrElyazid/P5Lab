@@ -6,6 +6,7 @@ let maxR = 50
 
 function setup() {
   let canvas = createCanvas(800, 600)
+  canvas.parent('canvas-container');
   canvas.elt.oncontextmenu = (e) => e.preventDefault();
   for (let i = 0; i < num; i++) {
     cells[i] = new Cell()

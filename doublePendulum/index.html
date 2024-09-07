@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <title>Double Pendulum Simulation</title>
+  </head>
+  <body>
+    <main>
+      <div id="canvas-container"></div>
+      <div id="controls-container">
+        <div id="controls-first-pendulum">
+          <h2>First Pendulum</h2>
+          <div class="control-group">
+            <label for="omega">Angle Omega:</label>
+            <input type="range" id="omega" min="-3.14" max="3.14" step="0.01" value="1.047">
+            <span id="omega-value"></span>
+          </div>
+          <div class="control-group">
+            <label for="r1">Length:</label>
+            <input type="range" id="r1" min="50" max="150" value="100">
+            <span id="r1-value"></span>
+          </div>
+          <div class="control-group">
+            <label for="m1">Mass:</label>
+            <input type="range" id="m1" min="100" max="700" value="400">
+            <span id="m1-value"></span>
+          </div>
+        </div>
+        <div id="controls-second-pendulum">
+          <h2>Second Pendulum</h2>
+          <div class="control-group">
+            <label for="theta">Angle Theta:</label>
+            <input type="range" id="theta" min="-3.14" max="3.14" step="0.01" value="0.785">
+            <span id="theta-value"></span>
+          </div>
+          <div class="control-group">
+            <label for="r2">Length:</label>
+            <input type="range" id="r2" min="50" max="150" value="100">
+            <span id="r2-value"></span>
+          </div>
+          <div class="control-group">
+            <label for="m2">Mass:</label>
+            <input type="range" id="m2" min="100" max="700" value="500">
+            <span id="m2-value"></span>
+          </div>
+        </div>
+        <div id="controls-global">
+          <h2>Global Parameters</h2>
+          <div class="control-group">
+            <label for="g">Gravity:</label>
+            <input type="range" id="g" min="0.1" max="2" step="0.1" value="0.8">
+            <span id="g-value"></span>
+          </div>
+          <div class="control-group">
+            <label for="damping">Damping factor (simulates friction):</label>
+            <input type="range" id="damping" min="0.9" max="0.999" step="0.001" value="0.99">
+            <span id="damping-value"></span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="sketch.js"></script>
+  </body>
+</html>
