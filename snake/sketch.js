@@ -27,44 +27,53 @@ function setup() {
 
 }
 
+
+
 function draw() {
-  background(255);
 
-  h.show();
-  h.update();
+  if (gameIsOver) {
+        noLoop()
+        gameOver()
+        
+  } else {
+    background(255);
 
-  for (let i = 0; i < snakeLength; i++) {
-    
-    if (trail[i].x == h.x && trail[i].y == h.y ) {
-      gameOver()
-
+    h.show();
+    h.update();
+  
+  
+    f.show();
+    f.update();
+  
+    for (let i = 0; i < snakeLength; i++) {
+      
+      if (trail[i].x == h.x && trail[i].y == h.y ) {
+        gameIsOver = true
+      }
+  
+      if (rectCollision(f, trail[i])) {
+        f.changePosition()
+      }
+  
+      fill(0, 255, 0);
+      rect(trail[i].x, trail[i].y, cellsize);
     }
 
-    if (rectCollision(f, trail[i])) {
-      f.changePosition()
-    }
-
-    fill(0, 255, 0);
-    rect(trail[i].x, trail[i].y, cellsize);
   }
+  
 
-  f.show();
-  f.update();
 }
 
 function addHeadPos(x, y) {
   trail.push({ x, y });
 
-  if (trail.length > snakeLength + 1) { // originally it was just snakeLength, it took me an hour  to realize this was causing the bug .....
+  if (trail.length > snakeLength + 1) { // originally it was just snakeLength, it took me an hour  to realize this was causing a bug .....
     trail.shift();
   }
 }
 
 function gameOver() {
-  gameIsOver = true
-  noLoop();
-  background(255)
-
+  
   fill(210, 20, 40)
   textSize(32);
   textAlign(CENTER, CENTER);
@@ -73,6 +82,7 @@ function gameOver() {
   fill(10, 50, 100)
   textSize(15)
   text('Press R to reload', width/2, height/2 + height/4)
+
 }
 
 
@@ -135,7 +145,7 @@ class head {
       this.y > height - cellsize ||
       this.y < 0
     ) {
-      gameOver();
+      gameIsOver = true;
     }
 
     
